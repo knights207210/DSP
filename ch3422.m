@@ -1,0 +1,15 @@
+%xc(n)=ha(n)=R10(n)
+N=10;
+n=1:N;
+x=sign(sign(N-n)+1);
+y=conv(x,x);
+subplot(2,1,1);
+stem(y);
+title('序列y[n]')
+n=1:2*N-1;
+k=-25:25;
+Y=y*(exp(-j*pi/12.5)).^(n'*k);
+subplot(2,1,2);
+stem(abs(Y));
+title('矩形序列地幅度谱');
+%N越大，频谱衰减的的速度越快
